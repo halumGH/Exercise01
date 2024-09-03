@@ -58,21 +58,19 @@ const _DaysInYear: number = 365;
 const _DaysInMonth: number = 30;
 let _year: number = 0;
 let _month: number = 0;
-let _day: number = 366;
+let _day: number = 400;
 
-_year = _day / _DaysInYear;
-_month = (_day % _DaysInYear) / _DaysInMonth;
-_day = (_day % _DaysInYear) % _DaysInMonth;
+_year = Math.floor(_day / _DaysInYear);
+_month = Math.floor((_day % _DaysInYear) / _DaysInMonth);
+_day = Math.floor((_day % _DaysInYear) % _DaysInMonth);
 
-console.log(_year.toFixed(0) + " year, " + _month.toFixed(0) + " month, " + _day.toFixed(0) + " day");
+console.log(_year + " year, " + _month + " month, " + _day + " day");
 
 /*
 6. Write a code to get difference between dates in days
 */
 let _date1: Date = new Date("2022-01-20");
 let _date2: Date = new Date("2022-01-22");
-let _DaysInDate1: number = (_date1.getFullYear() * 365) + (_date1.getMonth() * 30) + _date1.getDay();
-let _DaysInDate2: number = (_date2.getFullYear() * 365) + (_date2.getMonth() * 30) + _date2.getDay();
-let _DayDiff: number = _DaysInDate2 - _DaysInDate1;
+let _DayDiff: number = (_date2.getTime() - _date1.getTime()) / (24 * 3600 * 1000);
 
 console.log(_DayDiff);
